@@ -1,0 +1,350 @@
+dame los create table de la siguientes tablas sql server:
+
+Repartidor(id, nombre, telefono)
+Cliente(id, nombre, direccion)
+Producto(id, nombre, precio(decimal))
+Envio(id, factura(fk), direccion, fecha (date))
+Factura(id, cliente(fk), fecha (date))
+ItemFactura(id, producto(id), cantidad(int), factura(fk))
+Ubicacion(id, direccion (text), coordenadas (text))
+
+CREATE TABLE Repartidor (
+    id INT IDENTITY(1,1) PRIMARY KEY, 
+    nombre nVARCHAR(100) NOT NULL,
+    telefono VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE Cliente (
+    id INT IDENTITY(1,1) PRIMARY KEY, 
+    nombre nVARCHAR(100) NOT NULL,
+    direccion TEXT NOT NULL
+);
+
+CREATE TABLE Producto (
+    id INT IDENTITY(1,1) PRIMARY KEY, 
+    nombre nVARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE Factura (
+    id INT IDENTITY(1,1) PRIMARY KEY,  
+    cliente_id INT NOT NULL,
+    fecha DATE NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
+);
+
+CREATE TABLE Envio (
+    id INT IDENTITY(1,1) PRIMARY KEY, 
+    factura_id INT NOT NULL,
+    direccion nVARCHAR(MAX) NOT NULL,
+    fecha DATE NOT NULL,
+    repartidor_id INT not null
+    FOREIGN KEY (factura_id) REFERENCES Factura(id),
+    FOREIGN KEY (repartidor_id) REFERENCES Repartidor(id),
+	
+);
+
+CREATE TABLE ItemFactura (
+    id INT IDENTITY(1,1) PRIMARY KEY,  
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL,
+    factura_id INT NOT NULL,
+    FOREIGN KEY (producto_id) REFERENCES Producto(id),
+    FOREIGN KEY (factura_id) REFERENCES Factura(id)
+);
+
+CREATE TABLE Ubicacion (
+    id INT IDENTITY(1,1) PRIMARY KEY,  
+    direccion nVARCHAR(MAX) NOT NULL,
+    coordenadas nVARCHAR(MAX) NOT NULL
+);
+
+-- Inserciones de Repartidor
+INSERT INTO Repartidor (nombre, telefono) 
+VALUES ('Carlos Pérez', '612345678');
+
+INSERT INTO Repartidor (nombre, telefono) 
+VALUES ('Ana García', '623456789');
+
+INSERT INTO Repartidor (nombre, telefono) 
+VALUES ('Luis Martínez', '634567890');
+
+INSERT INTO Repartidor (nombre, telefono) 
+VALUES ('Marta Rodríguez', '645678901');
+
+INSERT INTO Repartidor (nombre, telefono) 
+VALUES ('José López', '656789012');
+
+-- Inserciones de Cliente
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Laura Sánchez', 'Carrer de Jaume III, 15, Palma, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Pedro López', 'Avinguda de la Gran Vía Asima, 27, Palma, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Ana Martínez', 'Carrer del Bisbe Perelló, 4, Palma, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('José Rodríguez', 'Carrer de l’Uruguai, 8, Palma, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('María González', 'Carrer de la Reina Maria Cristina, 10, Palma, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Juan Pérez', 'Carrer de la Muntanya, 22, Sóller, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Carmen López', 'Carrer de Sant Feliu, 12, Palma, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Carlos Fernández', 'Carrer de la Pau, 14, Alcúdia, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('Lucía García', 'Carrer de Portocristo, 5, Manacor, Mallorca');
+
+INSERT INTO Cliente (nombre, direccion) 
+VALUES ('David Pérez', 'Carrer de la Mar, 18, Pollença, Mallorca');
+
+-- Inserciones de Producto
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Laptop', 899.99);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Smartphone', 499.99);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Auriculares', 59.99);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Televisor 4K', 1200.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Reloj inteligente', 199.99);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Cámara digital', 350.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Teclado mecánico', 100.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Ratón inalámbrico', 30.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Monitor LED', 250.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Impresora', 150.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Altavoces Bluetooth', 75.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Disco duro externo', 120.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Cargador inalámbrico', 25.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Microondas', 90.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Cafetera', 45.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Aspiradora', 160.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Secador de pelo', 35.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Plancha de vapor', 40.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Silla ergonómica', 120.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Mesa de escritorio', 150.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Cámara de seguridad', 70.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Lampara LED', 15.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Espejo inteligente', 120.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Colchón viscoelástico', 350.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Sofá cama', 400.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Peluche gigante', 25.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Patinete eléctrico', 250.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Bicicleta', 180.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Funda de móvil', 15.00);
+
+INSERT INTO Producto (nombre, precio) 
+VALUES ('Cargador portátil', 35.00);
+
+-- Inserciones de Factura
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (1, '2025-01-15');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (2, '2025-01-16');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (3, '2025-01-17');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (4, '2025-01-18');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (5, '2025-01-19');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (6, '2025-01-20');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (7, '2025-01-21');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (8, '2025-01-22');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (9, '2025-01-23');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (10, '2025-01-24');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (1, '2025-01-25');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (2, '2025-01-26');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (3, '2025-01-27');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (4, '2025-01-28');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (5, '2025-01-29');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (6, '2025-01-30');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (7, '2025-01-31');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (8, '2025-02-01');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (9, '2025-02-02');
+
+INSERT INTO Factura (cliente_id, fecha) 
+VALUES (10, '2025-02-03');
+
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (1, 2, 1);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (2, 1, 2);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (3, 3, 3);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (4, 1, 4);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (5, 2, 5);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (6, 1, 6);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (7, 2, 7);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (8, 3, 8);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (9, 1, 9);
+
+INSERT INTO ItemFactura (producto_id, cantidad, factura_id) 
+VALUES (10, 2, 10);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (1, 'Carrer de Jaume III, 15, Palma', '2025-01-15', 1);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (2, 'Carrer de la Universitat, 24, Palma', '2025-01-16', 2);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (3, 'Carrer del Puig de Sant Pere, 5, Palma', '2025-01-17', 3);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (4, 'Carrer de Son Espanyolet, 12, Palma', '2025-01-18', 4);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (5, 'Carrer del Marquès de la Fontsanta, 33, Palma', '2025-01-19', 5);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (6, 'Avinguda de l''Avinguda de Gabriel Alomar i Villalonga, 8, Palma', '2025-01-20', 1);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (7, 'Carrer de Sant Miquel, 2, Palma', '2025-01-21', 2);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (8, 'Carrer de Concepció, 7, Palma', '2025-01-22', 3);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (9, 'Carrer de la Rambla, 5, Palma', '2025-01-23', 4);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (10, 'Carrer de Sant Joan, 18, Palma', '2025-01-24', 5);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (11, 'Carrer de Monti-sion, 14, Palma', '2025-01-25', 1);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (12, 'Carrer de Son Cladera, 9, Palma', '2025-01-26', 2);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (13, 'Carrer de l''Horta, 22, Palma', '2025-01-27', 3);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (14, 'Carrer de l''Escorxador, 17, Palma', '2025-01-28', 4);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (15, 'Carrer de la Sagrada Família, 11, Palma', '2025-01-29', 5);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (16, 'Carrer de la Fàbrica, 4, Palma', '2025-01-30', 1);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (17, 'Carrer de Can Valero, 3, Palma', '2025-01-31', 2);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (18, 'Carrer de Manacor, 12, Palma', '2025-02-01', 3);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (19, 'Carrer de la Pau, 6, Palma', '2025-02-02', 4);
+
+INSERT INTO Envio (factura_id, direccion, fecha, repartidor_id)
+VALUES (20, 'Carrer de la Creu, 20, Palma', '2025-02-03', 5);
