@@ -1,4 +1,4 @@
-package dev.danvega.jte.classes;
+package dev.sergi.jte.classes;
 
 public class Repartidor {
     public int id;

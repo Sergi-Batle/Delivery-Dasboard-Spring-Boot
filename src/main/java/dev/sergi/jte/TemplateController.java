@@ -1,9 +1,12 @@
-package dev.danvega.jte;
+package dev.sergi.jte;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import dev.sergi.jte.classes.Envio;
+import dev.sergi.jte.classes.Ubicacion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,9 +23,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import dev.danvega.jte.classes.Envio;
-import dev.danvega.jte.classes.Ubicacion;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -33,6 +33,7 @@ public class TemplateController {
     private static List<Ubicacion> ubicaciones;
     private List<Objects> tableRows;
     private static List<Envio> envios_hoy;
+    private final String api_key = "e716d43fefb84f54a82583177dbba332";
 
     @Autowired
     public TemplateController(ConnectionDB connectionDB) {
@@ -43,6 +44,7 @@ public class TemplateController {
     public String home(Model model) {
         String fecha = getDate();
         model.addAttribute("today", fecha);
+        model.addAttribute("api_key", api_key);
 
         // new Thread(() -> setHomepage(model)).start();
         setHomepage(model);
@@ -106,7 +108,7 @@ public class TemplateController {
         // URL de la API con la clave API
         direccion = direccion.replace(" ", "%20").replace(",", "%2C").replace("ñ", "%C3%B1");
         String urlString = "https://api.geoapify.com/v1/geocode/search?text=" + direccion
-                + "&apiKey=e716d43fefb84f54a82583177dbba332";
+                + "&apiKey=" + api_key;
         try {
             // Crear un objeto URL a partir de la cadena URL
             URI uri = new URI(urlString);

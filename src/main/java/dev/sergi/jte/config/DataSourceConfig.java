@@ -1,4 +1,4 @@
-package dev.danvega.jte.config;
+package dev.sergi.jte.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

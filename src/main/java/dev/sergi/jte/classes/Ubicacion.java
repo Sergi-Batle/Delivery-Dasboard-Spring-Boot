@@ -1,10 +1,10 @@
-package dev.danvega.jte.classes;
+package dev.sergi.jte.classes;
 
 
 public class Ubicacion {
-    private String direccion;
-    private double latitud;
-    private double longitud;
+    public String direccion;
+    public double latitud;
+    public double longitud;
 
     
 

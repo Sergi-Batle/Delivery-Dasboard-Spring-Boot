@@ -1,14 +1,14 @@
-package dev.danvega.jte;
-
-import dev.danvega.jte.classes.Envio;
-import dev.danvega.jte.classes.Repartidor;
-import dev.danvega.jte.classes.Ubicacion;
-import dev.danvega.jte.classes.Cliente;
+package dev.sergi.jte;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
+
+import dev.sergi.jte.classes.Cliente;
+import dev.sergi.jte.classes.Envio;
+import dev.sergi.jte.classes.Repartidor;
+import dev.sergi.jte.classes.Ubicacion;
 
 import java.util.Date;
 import java.util.List;

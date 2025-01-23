@@ -1,4 +1,4 @@
-package dev.danvega.jte;
+package dev.sergi.jte;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

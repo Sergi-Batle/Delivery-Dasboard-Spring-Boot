@@ -1,4 +1,4 @@
-package dev.danvega.jte.classes;
+package dev.sergi.jte.classes;
 
 import java.util.Date;
 

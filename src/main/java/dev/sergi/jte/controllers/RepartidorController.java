@@ -1,17 +1,14 @@
-package dev.danvega.jte.controllers;
+package dev.sergi.jte.controllers;
 
-import dev.danvega.jte.classes.Repartidor;
-import dev.danvega.jte.ConnectionDB;
+import dev.sergi.jte.classes.Repartidor;
+import dev.sergi.jte.ConnectionDB;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
-import java.util.Arrays;
 import java.util.List;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller

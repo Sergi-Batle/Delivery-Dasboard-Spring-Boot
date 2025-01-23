@@ -1,4 +1,4 @@
-package dev.danvega.jte;
+package dev.sergi.jte;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

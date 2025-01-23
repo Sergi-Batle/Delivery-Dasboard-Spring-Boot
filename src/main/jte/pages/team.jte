@@ -1,4 +1,4 @@
-@import dev.danvega.jte.classes.Repartidor
+@import dev.sergi.jte.classes.Repartidor
 @param java.util.List<Repartidor> repartidores
 
 @template.layout.main(content = @`
