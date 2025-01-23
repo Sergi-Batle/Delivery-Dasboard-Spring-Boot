@@ -9,7 +9,7 @@ Ubicacion(id, direccion (text), coordenadas (text))
 CREATE TABLE Repartidor (
     id INT IDENTITY(1,1) PRIMARY KEY, 
     nombre nVARCHAR(100) NOT NULL,
-    telefono VARCHAR(15) NOT NULL
+    telefono nVARCHAR(15) NOT NULL
 );
 
 CREATE TABLE Cliente (
