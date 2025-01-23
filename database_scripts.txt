@@ -1,5 +1,3 @@
-dame los create table de la siguientes tablas sql server:
-
 Repartidor(id, nombre, telefono)
 Cliente(id, nombre, direccion)
 Producto(id, nombre, precio(decimal))
