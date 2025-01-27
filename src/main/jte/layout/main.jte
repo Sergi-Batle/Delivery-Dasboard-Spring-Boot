@@ -14,6 +14,12 @@
             height: 450px;
             background: grey;
         }
+        #color {
+            width: 20px; 
+            height: 20px;
+            border-radius: 30%;
+            float: right;
+        }
     </style>
 </head>
 <body class="bg-gray-100">

@@ -23,9 +23,9 @@
             <tbody>
                 @for(Envio envio : envios)
                     <tr class="bg-gray-900/20">
-                        <td class="text-center p-2">${envio.cliente.nombre}</td>
                         <td class="text-center p-2">${envio.direccion}</td>
-                        <td class="text-center p-2 text-${envio.repartidor.color}-500 bg-gray-800/40">${envio.repartidor.nombre}</td>
+                        <td class="text-center p-2">${envio.cliente.nombre}</td>
+                        <td class="text-center p-2 bg-gray-800/20">${envio.repartidor.nombre}<span id="color" class="bg-${envio.repartidor.color}-500"></span></td>
                         <td class="text-center p-2">${envio.estado}</td>
                     </tr>
                 @endfor
